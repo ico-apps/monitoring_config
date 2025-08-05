@@ -1,0 +1,114 @@
+{
+    "projects": {
+        "socc": {
+            "proj_ui_config": {
+                "last_version": "1.0",
+                "versions": {
+                    "1.0": {"file": "socc_ui_config-1.0.json", "description": "SOCC UI first config", "updated": "2025-08-04", "schema_validator": "1.0"}
+                }
+            },
+            "project_config": {
+                "last_version": "1.0",
+                "versions": {
+                    "1.0": {"file": "socc_config-1.0.json", "description": "SOCC general first config", "updated": "2025-08-04", "schema_validator": "1.0"}
+                }            
+            }
+        },
+        "segre": {
+            "proj_ui_config": {
+                "last_version": "1.0",
+                "versions": {
+                    "1.0": {"file": "segre_ui_config-1.0.json", "description": "SEGRE UI first config", "updated": "2025-08-04", "schema_validator": "1.0"}
+                }
+            },
+            "project_config": {
+                "last_version": "1.0",
+                "versions": {
+                    "1.0": {"file": "segre_config-1.0.json", "description": "SEGRE general first config", "updated": "2025-08-04", "schema_validator": "1.0"}
+                }            
+            }
+        },
+        "plataformes": {
+            "proj_ui_config": {
+                "last_version": "1.0",
+                "versions": {
+                    "1.0": {"file": "plataformes_ui_config-1.0.json", "description": "Plataformes UI first config", "updated": "2025-08-04", "schema_validator": "1.0"}
+                }
+            },
+            "project_config": {
+                "last_version": "1.0",
+                "versions": {
+                    "1.0": {"file": "plataformes_config-1.0.json", "description": "Plataformes general first config", "updated": "2025-08-04", "schema_validator": "1.0"}
+                }            
+            }
+        },
+        "sacc": {
+            "proj_ui_config": {
+                "last_version": "1.0",
+                "versions": {
+                    "1.0": {"file": "sacc_ui_config-1.0.json", "description": "SACC UI first config", "updated": "2025-08-04", "schema_validator": "1.0"}
+                }
+            },
+            "project_config": {
+                "last_version": "1.0",
+                "versions": {
+                    "1.0": {"file": "sacc_config-1.0.json", "description": "SACC general first config", "updated": "2025-08-04", "schema_validator": "1.0"}
+                }            
+            }
+        },
+        "dindis": {
+            "proj_ui_config": {
+                "last_version": "1.0",
+                "versions": {
+                    "1.0": {"file": "dindis_config-1.0.json", "description": "DINDIS UI first config", "updated": "2025-08-04", "schema_validator": "1.0"}
+                }
+            },
+            "project_config": {
+                "last_version": "1.0",
+                "versions": {
+                    "1.0": {"file": "dindis_ui_config-1.0.json", "description": "DINDIS general config", "updated": "2025-08-04", "schema_validator": "1.0"}
+                }            
+            },
+            "geometry_schema": {
+                "last_version": "1.0",
+                "versions": {
+                    "1.0": {"file": "dindis_shape_config-1.0.json", "description": "List of points with transect and section properties"}
+                }
+            }
+        },
+        "son": {
+            "proj_ui_config": {
+                "last_version": "1.0",
+                "versions": {
+                    "1.0": {"file": "son_config-1.0.json", "description": "SON UI first config", "updated": "2025-08-04", "schema_validator": "1.0"}
+                }
+            },
+            "project_config": {
+                "last_version": "1.0",
+                "versions": {
+                    "1.0": {"file": "son_ui_config-1.0.json", "description": "SON general config", "updated": "2025-08-04", "schema_validator": "1.0"}
+                }            
+            },
+            "geometry_schema": {
+                "last_version": "1.0",
+                "versions": {
+                    "1.0": {"file": "son_shape_config-1.0.json", "description": "Recorder centroid point"}
+                }
+            }
+        }
+    },
+    "schemas": {
+        "proj_ui_config": {
+            "last_version": "1.0",
+            "versions": {
+                "1.0": {"file": "ui_schema-1.0.json", "description": "First UI schema definitions", "updated": "2025-08-04"}
+            }
+        },
+        "project_config": {
+            "last_version": "1.0",
+            "versions": {
+                "1.0": {"file": "config_schema-1.0.json", "description": "First config schema definitions", "updated": "2025-08-04"}
+            }            
+        }
+    }
+}

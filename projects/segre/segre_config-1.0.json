@@ -1,0 +1,77 @@
+{
+    "project":{
+        "has_logo": false,
+        "external_observers": ["id_rapis"],
+        "protocol_code": "segre"
+    },
+    "site": {
+        "list_shapes": ["rapis_parks", "county"],
+        "shape_type": "grid2_5km",
+        "shape_simple_serialization": true,
+        "shape_extra_fields": {},
+        "shape_multiple_geometries": false,
+        "shape_on_creation": true,
+        "shape_defined_by_user": false,
+        "edit_coordinates": false,
+        "creation_using_map": true,
+        "creation_next_code": false,
+        "creation_automatic_code": true,
+        "creation_create_collaboration": false,
+        "creation_workgroup_code": true,
+        "view_change_shape": false,
+        "view_species": true,
+        "view_summary": false,
+        "view_list_public": false
+    },
+    "collaborator": {
+        "can_modify_valid_survey": false,
+        "has_material": false,    
+        "can_delete_collaboration": false
+    },
+    "module": {
+        "export_site_shapes": false,
+        "observations_map": false,
+        "has_landing_stats": false,
+        "stats": false,
+        "custom_fields": false,
+        "survey_locations": true,
+        "ornitho": false,
+        "site_metadata": false
+    },
+    "roles": {
+        "coordination": [
+            "project-coordinator"
+        ],
+        "with_workgroups": [
+            "data-manager"
+        ],
+        "can_see_all": [
+            "project-coordinator",
+            "super-data-manager"
+        ],
+        "can_create_sites": [
+            "project-coordinator"
+        ],
+        "can_see_species_map": [
+            "data-manager",
+            "super-data-manager",
+            "project-coordinator",
+            "workgroup-coordinator",
+            "collaborator"
+        ]
+    },
+    "survey": {
+        "behaviour": true,
+        "impact": false,
+        "non_natural_year": false,
+        "validation": true,
+        "observer_external_id": "id_rapis",
+        "period": true,
+        "period_out_of": true,
+        "period_with_spring_winter": false,
+        "has_suspicious_observations": false,
+        "has_replicate": true,
+        "has_neutralized_time": true,
+        "has_single_date": true
+    }
+}

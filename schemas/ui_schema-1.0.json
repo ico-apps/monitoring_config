@@ -1,0 +1,42 @@
+{
+    "title": "Ui Config",
+    "type": "object",
+    "required": [
+      "site_icon",
+      "translation_site",
+      "translation_sites",
+      "translation_site_code",
+      "translation_season_year"
+    ],
+    "properties": {
+      "site_icon": {
+        "type": "string",
+        "default": "fas fa-map-marked-alt"
+      },
+      "translation_site": {
+        "type": "string",
+        "default": "Itinerari"
+      },
+      "translation_sites": {
+        "type": "string",
+        "default": "Itineraris"
+      },
+      "translation_site_code": {
+        "type": "string",
+        "default": "Codi"
+      },
+      "translation_season_year": {
+        "type": "string",
+        "default": "Any"
+      },
+      "survey_list_extra_fields": {
+        "type": "array",
+        "default": []
+      },
+      "survey_list_extra_filters": {
+        "type": "array",
+        "default": []
+      }
+    },
+    "additionalProperties": false    
+}

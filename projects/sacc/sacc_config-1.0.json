@@ -1,0 +1,76 @@
+{
+    "project":{
+        "has_logo": true,
+        "external_observers": [],
+        "protocol_code": "sacc"
+    },
+    "site": {
+        "list_shapes": ["county","grid10km"],
+        "shape_type": "sacc_transect",
+        "shape_simple_serialization": true,
+        "shape_extra_fields": {},
+        "shape_multiple_geometries": false,
+        "shape_on_creation": true,
+        "shape_defined_by_user": true,
+        "edit_coordinates": false,
+        "creation_using_map": true,
+        "creation_next_code": false,
+        "creation_automatic_code": false,
+        "creation_create_collaboration": false,
+        "creation_workgroup_code": false,
+        "view_change_shape": true,
+        "view_species": true,
+        "view_summary": false,
+        "view_list_public": false
+    },
+    "collaborator": {
+        "can_modify_valid_survey": false,
+        "has_material": false,    
+        "can_delete_collaboration": true
+    },
+    "module": {
+        "export_site_shapes": true,
+        "observations_map": true,
+        "has_landing_stats": false,
+        "stats": false,
+        "custom_fields": true,
+        "survey_locations": false,
+        "site_metadata": true,
+        "ornitho": false
+    },
+    "roles": {
+        "coordination": [
+            "project-coordinator",
+            "workgroup-coordinator"
+        ],
+        "with_workgroups": [
+            "data-manager",
+            "workgroup-coordinator"
+        ],
+        "can_see_all": [
+            "project-coordinator",
+            "super-data-manager"
+        ],
+        "can_create_sites": [
+            "project-coordinator",
+            "workgroup-coordinator"
+        ],
+        "can_see_species_map": [
+            "project-coordinator"
+        ]
+    },
+    "survey": {
+        "behaviour": false,
+        "impact": false,
+        "non_natural_year": true,
+        "validation": true,
+        "observer_external_id": "",
+        "period": true,
+        "period_out_of": true,
+        "period_with_spring_winter": false,
+        "has_suspicious_observations": true,
+        "has_replicate": false,
+        "has_neutralized_time": false,
+        "has_single_date": true
+    }
+}

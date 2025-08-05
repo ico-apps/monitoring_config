@@ -1,0 +1,77 @@
+{
+    "project":{
+        "has_logo": false,
+        "external_observers": ["id_ornitho","id_socc"],
+        "protocol_code": "socc"
+    },
+    "site": {
+        "list_shapes": ["county"],
+        "shape_type": "transect",
+        "shape_simple_serialization": false,
+        "shape_extra_fields": {"section": "Secció"},
+        "shape_multiple_geometries": true,
+        "shape_on_creation": false,
+        "shape_defined_by_user": false,
+        "edit_coordinates": false,
+        "creation_using_map": false,
+        "creation_next_code": true,
+        "creation_automatic_code": false,
+        "creation_create_collaboration": false,
+        "creation_workgroup_code": true,
+        "view_change_shape": true,
+        "view_species": true,
+        "view_summary": false,
+        "view_list_public": true
+    },
+    "collaborator": {
+        "can_modify_valid_survey": false,
+        "has_material": true,    
+        "can_delete_collaboration": false
+    },
+    "module": {
+        "export_site_shapes": true,
+        "observations_map": true,
+        "has_landing_stats": true,
+        "stats": true,
+        "custom_fields": false,
+        "survey_locations": false,
+        "ornitho": true,
+        "site_metadata": false
+    },
+    "roles": {
+        "coordination": [
+            "project-coordinator"
+        ],
+        "with_workgroups": [
+            "data-manager"
+        ],
+        "can_see_all": [
+            "project-coordinator",
+            "super-data-manager"
+        ],
+        "can_create_sites": [
+            "project-coordinator"
+        ],
+        "can_see_species_map": [
+            "data-manager",
+            "super-data-manager",
+            "project-coordinator",
+            "workgroup-coordinator",
+            "collaborator"
+        ]
+    },
+    "survey": {
+        "behaviour": false,
+        "impact": true,
+        "non_natural_year": true,
+        "validation": true,
+        "observer_external_id": "id_socc",
+        "period": true,
+        "period_out_of": false,
+        "period_with_spring_winter": true,
+        "has_suspicious_observations": true,
+        "has_replicate": true,
+        "has_neutralized_time": true,
+        "has_single_date": true
+    }
+}
