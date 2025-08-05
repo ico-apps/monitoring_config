@@ -7,8 +7,7 @@
       "module",
       "roles",
       "collaborator",
-      "survey",
-      "permissions"
+      "survey"
     ],
     "properties": {
       "project": {
