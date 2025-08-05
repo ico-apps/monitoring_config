@@ -60,7 +60,7 @@
             "proj_ui_config": {
                 "last_version": "1.0",
                 "versions": {
-                    "1.0": {"file": "dindis_ui_config-1.0", "description": "DINDIS UI first config", "updated": "2025-08-04", "schema_validator": "ui_schema-1.0.json"}
+                    "1.0": {"file": "dindis_ui_config-1.0.json", "description": "DINDIS UI first config", "updated": "2025-08-04", "schema_validator": "ui_schema-1.0.json"}
                 }
             },
             "project_config": {
