@@ -1,4 +1,5 @@
 {
+    "version": "1.0",
     "project":{
         "has_logo": false,
         "external_observers": ["id_rapis"],
