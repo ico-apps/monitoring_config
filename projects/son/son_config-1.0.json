@@ -1,0 +1,108 @@
+{
+    "project":{
+        "has_logo": false,
+        "external_observers": [],
+        "protocol_code": "freeform"
+    },
+    "site": {
+        "list_shapes": [],
+        "shape_type": "son_site",
+        "shape_simple_serialization": true,
+        "shape_extra_fields": {},
+        "shape_multiple_geometries": false,
+        "shape_on_creation": true,
+        "shape_defined_by_user": false,
+        "shape_draw_config": [
+            {
+            "type": "marker",
+            "feature_collection": false,
+            "action_draw_text": "Indica el punt de gravació",
+            "unique_together": []
+            }
+        ],
+        "edit_coordinates": false,
+        "creation_using_map": false,
+        "creation_next_code": false,
+        "creation_automatic_code": false,
+        "creation_create_collaboration": false,
+        "creation_workgroup_code": false,
+        "view_change_shape": true,
+        "view_species": true,
+        "view_summary": false,
+        "view_list_public": false
+    },
+    "collaborator": {
+        "can_modify_valid_survey": true,
+        "has_material": false,
+        "can_delete_collaboration": false
+    },
+    "module": {
+        "export_site_shapes": false,
+        "observations_map": true,
+        "has_landing_stats": false,
+        "stats": false,
+        "custom_fields": true,
+        "survey_locations": false,
+        "ornitho": false,
+        "site_metadata": false
+    },
+    "roles": {
+        "coordination": [
+            "project-coordinator",
+            "workgroup-coordinator"
+        ],
+        "with_workgroups": [
+            "data-manager",
+            "workgroup-coordinator",
+            "collaborator"
+        ],
+        "can_see_all": [
+            "project-coordinator",
+            "super-data-manager"
+        ],
+        "can_create_sites": [
+            "project-coordinator"
+        ],
+        "can_see_species_map": [
+            "data-manager",
+            "super-data-manager",
+            "project-coordinator",
+            "workgroup-coordinator",
+            "collaborator"
+        ]
+    },
+    "survey": {
+        "behaviour": false,
+        "impact": false,
+        "non_natural_year": false,
+        "validation": true,
+        "observer_external_id": "",
+        "period": false,
+        "period_out_of": false,
+        "period_with_spring_winter": false,
+        "has_suspicious_observations": false,
+        "has_replicate": false,
+        "observation_has_total_count": true,
+        "observation_has_comments": false,
+        "has_neutralized_time": false,
+        "has_single_date": false
+    },
+    "permissions":{
+        "project-coordinator":{
+            "site_create": "full-access",
+            "site_edit": "full-access",
+            "site_edit_shape": "full-access",
+            "survey_create": "full-access",
+            "survey_detail": "full-access",
+            "survey_edit": "full-access"
+        },
+        "collaborator":{
+            "site_create": "none",
+            "site_edit": "none",
+            "site_edit_shape": "none",
+            "survey_create": "collab",
+            "survey_detail": "visible",
+            "survey_edit": "collab-owner"
+        }
+    }
+}
