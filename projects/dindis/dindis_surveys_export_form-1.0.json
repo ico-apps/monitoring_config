@@ -1,0 +1,53 @@
+    {
+        "monitoringsites": {
+            "group_name": "Monitoring Sites",
+            "all_select": {"show": true, "label": "All monitoring sites"},
+            "type" : "select",
+            "default": true,
+            "queryset": {"type": "monitoringsite"},
+            "widget": {"label": "Choose monitoring sites"},
+            "query": "monitoringsite__in",
+            "order": 0
+        },
+        "labels": {
+            "group_name": "Labels",
+            "roles": ["project-coordinator", "super-data-manager", "data-manager"],
+            "type" : "select",
+            "default": true,
+            "queryset": {"type": "label"},
+            "all_select": {"show": true, "label": "All monitoring sites labels"},
+            "widget": {"label": "Choose monitoring sites labels"},
+            "query": "monitoringsite__labels__in",
+            "order": 1
+        },
+        "year": {
+            "group_name": "Year range",
+            "type" : "range",
+            "default": true,
+            "all_select": {"show": true, "label": "All years"},
+            "widget": {"label": "Year range", "fields": ["year_min", "year_max"]},
+            "query": "season_year",
+            "order": 2
+        },
+        "species": {
+            "group_name": "Species",
+            "type" : "select",
+            "default": true,
+            "queryset": {"type": "species"},
+            "all_select": {"show": true, "label": "All species"},
+            "widget": {"label": "Choose species"},
+            "query": "observations__taxonomy__in",
+            "order": 3
+        },
+        "observers": {
+            "group_name": "Observers",
+            "roles": ["project-coordinator"],
+            "type" : "select",
+            "default": true,
+            "queryset": {"type": "observer"},
+            "all_select": {"show": true, "label": "All observers"},
+            "widget": {"label": "Choose observers"},
+            "query": "observers__in",
+            "order": 4
+        }
+    }

@@ -74,6 +74,18 @@
                 "versions": {
                     "1.0": {"file": "dindis_shape_config-1.0.json", "description": "List of points with transect and section properties", "updated": "2025-08-04"}
                 }
+            },
+            "surveys_export_config": {
+                "last_version": "1.0",
+                "versions": {
+                    "1.0": {"file": "dindis_surveys_export_config-1.0.json", "description": "First DINDIS exporter", "updated": "2025-09-02"}
+                }
+            },
+            "surveys_export_form": {
+                "last_version": "1.0",
+                "versions": {
+                    "1.0": {"file": "dindis_surveys_export_form-1.0.json", "description": "Primer formulari de prova del DINDIS", "updated": "2025-09-02"}
+                }
             }
         },
         "son": {

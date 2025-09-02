@@ -1,0 +1,71 @@
+{
+    "authorized_roles": ["collaborator", "data-manager", "super-data-manager", "project-coordinator"],
+    "primary_files": [
+        {
+            "model": "protocol_freeform.SurveyFree",
+            "filters": [],
+            "fields": ["pk", "monitoringsite__code", "comments", "extra_fields__transect", "extra_fields__sky", "extra_fields__wind"],
+            "annotations": {
+                "date": {"type": "cast", "field_name": "time_start", "field_type": "date"},
+                "start": {"type": "cast", "field_name": "time_start", "field_type": "time"},
+                "end": {"type": "cast", "field_name": "time_end", "field_type": "time"},
+                "observers_pk": {"type": "string_agg", "separator": ",", "field_name": "observers__pk"},
+                "observers_full_name": {
+                    "type": "string_agg_concat",
+                    "fields": ["observers__first_name", "observers__last_name"],
+                    "separator": " ",
+                    "agg_separator": ",",
+                    "ordering": "observers__pk"
+                }
+            },
+            "trans_labels": false,
+            "labels": [
+                {"pk": "survey_id"},
+                {"monitoringsite__code": "site"},
+                {"date": "date"},
+                {"observers_pk": "observer_ids"},
+                {"observers_full_name": "observer_names"},
+                {"start": "start_time"},
+                {"end": "end_time"},
+                {"extra_fields__transect": "transect"},
+                {"extra_fields__sky": "sky"},
+                {"extra_fields__wind": "wind"},
+                {"comments": "comments"}
+            ]
+            ,
+            "excludes": {
+                "not_coordinator_excludes": ["observers_full_name"],
+                "collaborator_excludes": ["observers_pk"]
+            },
+            "order_by": ["monitoringsite__code", "season_year"],
+            "filename": "surveys",
+            "primary_filtered_objects": "filtered_surveys"
+        }
+    ],
+    "related_files": [
+        {
+            "filename": "observations",
+            "model": "protocol_freeform.ObservationFree",
+            "filters": [
+                {"query": "survey__in", "type": "primary_filtered_objects",  "value": "filtered_surveys"},
+                {"query": "taxonomy__in", "type": "user_fiter", "value": "species"}
+            ],
+            "fields": ["survey__pk", "taxonomy__latin", "taxonomy__species_id", "comments",
+                       "extra_fields__section", "extra_fields__band", "extra_fields__side", "extra_fields__sex", "extra_fields__location"],
+            "annotations": {
+            },
+            "trans_labels": false,
+            "labels": [
+                {"survey__pk": "survey_id"},
+                {"taxonomy__latin": "species"},
+                {"taxonomy__species_id": "species_id"},
+                {"extra_fields__section": "section"},
+                {"extra_fields__band": "band"},
+                {"extra_fields__side": "side"},
+                {"extra_fields__sex": "sex"},
+                {"extra_fields__location": "location"},
+                {"comments": "comments"}
+            ]
+        }
+    ]
+}
