@@ -1,0 +1,119 @@
+{
+    "authorized_roles": ["collaborator", "data-manager", "super-data-manager", "project-coordinator"],
+    "primary_files": [
+        {
+            "model": "segre.SurveyRapis",
+            "filters": [],
+            "fields": ["pk", "monitoringsite__code", "period__code", "neutralized_time", "comments", "state"],
+            "annotations": {
+                "date": {"type": "cast", "field_name": "time_start", "field_type": "date"},
+                "start": {"type": "cast", "field_name": "time_start", "field_type": "time"},
+                "end": {"type": "cast", "field_name": "time_end", "field_type": "time"},
+                "observers_pk": {"type": "string_agg", "separator": ",", "field_name": "observers__pk"},
+                "observers_full_name": {
+                    "type": "string_agg_concat",
+                    "fields": ["observers__first_name", "observers__last_name"],
+                    "separator": " ",
+                    "agg_separator": ",",
+                    "ordering": "observers__pk"
+                },
+                "get_form_type_display": {"type": "case_when", "field_name": "form_type", "model": "segre.SurveyRapis",
+                    "values": {"STANDARD": "standard", "NON_STANDARD": "non-standard"}}
+            },
+            "tomany_fields": {
+                "meteo": {
+                    "display_field": "value", "key_field": "type",
+                    "fields": {"cloudyness": "cloudyness", "rain": "rain", "temperature": "temperature", "visibility": "visibility", "wind_dir": "wind_dir", "wind_intensity": "wind_intensity"}
+                }
+            },
+            "labels": [
+                {"pk": "Id survey"},
+                {"monitoringsite__code": "Monitoringsite"},
+                {"period__code": "Period"},
+                {"date": "Date"},
+                {"observers_pk": "Id observers"},
+                {"observers_full_name": "Observers name"},
+                {"start": "Start time"},
+                {"end": "End time"},
+                {"neutralized_time": "Neutralized time"},
+                {"get_form_type_display": "Standard/Non Standard"},
+                {"comments": "Comments"},
+                {"cloudyness": "Cloudyness"},
+                {"rain": "Rain"},
+                {"temperature": "Temperature"},
+                {"visibility": "Visibility"},
+                {"wind_dir": "wind_dir"},
+                {"wind_intensity": "wind_intensity"},
+                {"state": "Validation status"}
+            ]
+            ,
+            "excludes": {
+                "not_coordinator_excludes": ["state", "observers_full_name"],
+                "collaborator_excludes": ["observers_pk"]
+            },
+            "order_by": ["monitoringsite__code", "season_year", "period__code"],
+            "filename": "surveys",
+            "primary_filtered_objects": "filtered_surveys"
+        }
+    ],
+    "related_files": [
+        {
+            "filename": "observations",
+            "model": "segre.ObservationRapis",
+            "filters": [
+                {"query": "taxonomy__species_thesaurus__id_taxo_group", "type": "value", "value": 1},
+                {"query": "survey__in", "type": "primary_filtered_objects",  "value": "filtered_surveys"},
+                {"query": "taxonomy__in", "type": "user_fiter", "value": "species"}
+            ],
+            "fields": ["survey__pk", "taxonomy__latin", "taxonomy__species_id", "total_count", "behaviour", "obs_location"],
+            "annotations": {
+                "start": {"type": "cast", "field_name": "time_start", "field_type": "time"},
+                "end": {"type": "cast", "field_name": "time_end", "field_type": "time"},
+                "x": {"type": "point", "function": "ST_X", "field_name": "location"},
+                "y": {"type": "point", "function": "ST_Y", "field_name": "location"}
+            },
+            "labels": [
+                {"survey__pk": "Id survey"},
+                {"taxonomy__latin": "Species"},
+                {"taxonomy__species_id": "Species id"},
+                {"total_count": "Count"},
+                {"start": "Start time"},
+                {"end": "End time"},
+                {"behaviour": "Behaviour"},
+                {"x": "X"},
+                {"y": "Y"},
+                {"obs_location": "Visibility"}
+            ]
+        },
+        {
+            "filename": "shapes",
+            "model": "segre.ObservationRapis",
+            "filters": [
+                {"query": "taxonomy__species_thesaurus__id_taxo_group", "type": "value", "value": 1},
+                {"query": "survey__in", "type": "primary_filtered_objects",  "value": "filtered_surveys"},
+                {"query": "taxonomy__in", "type": "user_fiter", "value": "species"}
+            ],
+            "fields": ["survey__pk", "survey__monitoringsite__code", "survey__period", "taxonomy__latin", "total_count", "behaviour"],
+            "annotations": {
+                "date": {"type": "cast", "field_name": "survey__time_start", "field_type": "date"},
+                "start": {"type": "cast", "field_name": "time_start", "field_type": "time"},
+                "end": {"type": "cast", "field_name": "time_end", "field_type": "time"},
+                "x": {"type": "point", "function": "ST_X", "field_name": "location"},
+                "y": {"type": "point", "function": "ST_Y", "field_name": "location"}
+            },
+            "labels": [
+                {"survey__pk": "Id survey"},
+                {"survey__monitoringsite__code": "Monitoringsite code"},
+                {"survey__period": "Period"},
+                {"date": "Date"},
+                {"taxonomy__latin": "Species"},
+                {"total_count": "Count"},
+                {"start": "Start time"},
+                {"end": "End time"},
+                {"behaviour": "Behaviour"},
+                {"x": "X"},
+                {"y": "Y"}
+            ]
+        }
+    ]
+}

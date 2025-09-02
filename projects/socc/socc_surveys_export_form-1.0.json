@@ -1,0 +1,134 @@
+    {
+        "monitoringsites": {
+            "group_name": "Monitoring Sites",
+            "all_select": {"show": true, "label": "All monitoring sites"},
+            "type" : "select",
+            "default": true,
+            "queryset": {"type": "monitoringsite"},
+            "widget": {"label": "Choose monitoring sites"},
+            "query": "monitoringsite__in",
+            "order": 0
+        },
+        "labels": {
+            "group_name": "Labels",
+            "roles": ["project-coordinator", "super-data-manager", "data-manager"],
+            "type" : "select",
+            "default": true,
+            "queryset": {"type": "label"},
+            "all_select": {"show": true, "label": "All monitoring sites labels"},
+            "widget": {"label": "Choose monitoring sites labels"},
+            "query": "monitoringsite__labels__in",
+            "order": 1
+        },
+        "county": {
+            "group_name": "Counties",
+            "all_select": {"show": true, "label": "All monitoring sites counties"},
+            "type" : "select",
+            "default": true,
+            "queryset": {"type": "shape", "param": "county"},
+            "widget": {"label": "Choose monitoring sites counties"},
+            "query": "monitoringsite__shapes__in",
+            "order": 2
+        },
+        "utm10": {
+            "group_name": "UTM 10x10",
+            "all_select": {"show": true, "label": "All monitoring sites utm"},
+            "type" : "select",
+            "default": true,
+            "queryset": {"type": "shape", "param": "grid10km"},
+            "widget": {"label": "Choose monitoring sites utm"},
+            "query": "monitoringsite__shapes__in",
+            "order": 3
+        },
+        "year": {
+            "group_name": "Year range",
+            "type" : "range",
+            "default": true,
+            "all_select": {"show": true, "label": "All years"},
+            "widget": {"label": "Year range", "fields": ["year_min", "year_max"]},
+            "query": "season_year",
+            "order": 4
+        },
+        "periods": {
+            "group_name": "Periods",
+            "type" : "select",
+            "default": true,
+            "queryset": {"type": "period"},
+            "all_select": {"show": true, "label": "All periods"},
+            "widget": {"label": "Choose periods"},
+            "query": "period__in",
+            "order": 5
+        },
+        "form_types": {
+            "group_name": "Survey type",
+            "type" : "select",
+            "default": false,
+            "all_select": {"show": true, "label": "All survey types"},
+            "widget": {"label": "Choose survey types"},
+            "query": "form_type__in",
+            "model": "socc.Survey",
+            "choices_obj": "SURVEY_TYPES",
+            "title": "Choose survey types",
+            "order": 6
+        },
+        "sources": {
+            "group_name": "Origen",
+            "roles": ["project-coordinator"],
+            "type" : "select",
+            "default": false,
+            "all_select": {"show": true, "label": "All sources"},
+            "widget": {"label": "Choose sources"},
+            "query": "source__in",
+            "title": "Choose sources",
+            "model": "socc.Survey",
+            "choices_obj": "SOURCE_TYPES",
+            "order": 7
+        },
+        "species": {
+            "group_name": "Species",
+            "type" : "select",
+            "default": true,
+            "queryset": {"type": "species"},
+            "all_select": {"show": true, "label": "All species"},
+            "widget": {"label": "Choose species"},
+            "query": "observations__taxonomy__in",
+            "order": 8
+        },
+        "observers": {
+            "group_name": "Observers",
+            "roles": ["project-coordinator"],
+            "type" : "select",
+            "default": true,
+            "queryset": {"type": "observer"},
+            "all_select": {"show": true, "label": "All observers"},
+            "widget": {"label": "Choose observers"},
+            "query": "observer__in",
+            "order": 9
+        },
+        "replica": {
+            "group_name": "Replica",
+            "roles": ["project-coordinator"],
+            "type" : "select",
+            "default": false,
+            "all_select": {"show": true, "label": "All (replica/normal)"},
+            "widget": {"label": "Choose replica type"},
+            "query": "replicate__in",
+            "model": "socc.Survey",
+            "choices_obj": "REPLICA_TYPES",
+            "title": "Choose replica type",
+            "order": 10
+        },
+        "validations": {
+            "group_name": "Validation",
+            "roles": ["project-coordinator"],
+            "type" : "select",
+            "default": false,
+            "all_select": {"show": true, "label": "All validation types"},
+            "widget": {"label": "Choose validation types"},
+            "query": "state__in",
+            "title": "Choose validation types",
+            "model": "socc.Validation",
+            "choices_obj": "VALIDATION_TYPES",
+            "order": 11
+        }
+    }

@@ -1,0 +1,56 @@
+{
+    "authorized_roles": ["data-manager", "super-data-manager", "project-coordinator"],
+    "primary_files": [
+        {
+            "model": "plataformes.SurveyPlataformes",
+            "filters": [],
+            "fields": ["pk", "monitoringsite__code", "neutralized_time", "comments"],
+            "annotations": {
+                "date": {"type": "cast", "field_name": "time_start", "field_type": "date"},
+                "start": {"type": "cast", "field_name": "time_start", "field_type": "time"},
+                "end": {"type": "cast", "field_name": "time_end", "field_type": "time"},
+                "replica": {"type": "cast", "field_name": "replicate", "field_type": "integer"},
+                "observer_full_name": {"type": "concat", "separator": " ", "fields": ["observer__first_name", "observer__last_name"]}
+            },
+            "labels": [
+                {"pk": "Id cens"},
+                {"monitoringsite__code": "Monitoringsite"},
+                {"date": "Date"},
+                {"start": "Start time"},
+                {"end": "End time"},
+                {"neutralized_time": "Neutralized time"},
+                {"observer_full_name": "Observer"},
+                {"comments": "Comments"},
+                {"replica": "Replica"}
+            ],
+            "excludes": {
+                "not_coordinator_excludes": ["replica"],
+                "data_manager_excludes": ["observer_full_name"]
+            },
+            "order_by": ["monitoringsite__code", "season_year"],
+            "filename": "surveys",
+            "primary_filtered_objects": "filtered_surveys"
+        }
+    ],
+    "related_files": [
+        {
+            "filename": "observations",
+            "model": "plataformes.ObservationPlataformes",
+            "filters": [
+                {"query": "survey__in", "type": "primary_filtered_objects", "value": "filtered_surveys"},
+                {"query": "taxonomy__in", "type": "user_fiter", "value": "species"}
+            ],
+            "fields":  ["survey__pk", "taxonomy__latin",
+                        "taxonomy__parent_id",
+                        "adult_count"],
+            "annotations": {},
+            "labels": [
+                {"survey__pk": "Id survey"},
+                {"taxonomy__latin": "Species"},
+                {"taxonomy__parent_id": "Species ID"},
+                {"adult_count": "Total adults"}
+            ],
+            "extra_files": []
+        }
+    ]
+}

@@ -12,6 +12,18 @@
                 "versions": {
                     "1.0": {"file": "socc_config-1.0.json", "description": "SOCC general first config", "updated": "2025-08-04", "schema_validator": "config_schema-1.0.json"}
                 }            
+            },
+            "surveys_export_config": {
+                "last_version": "1.0",
+                "versions": {
+                    "1.0": {"file": "socc_surveys_export_config-1.0.json", "description": "SOCC exporter config", "updated": "2025-09-02"}
+                }
+            },
+            "surveys_export_form": {
+                "last_version": "1.0",
+                "versions": {
+                    "1.0": {"file": "socc_surveys_export_form-1.0.json", "description": "SOCC exporter form", "updated": "2025-09-02"}
+                }
             }
         },
         "segre": {
@@ -26,6 +38,18 @@
                 "versions": {
                     "1.0": {"file": "segre_config-1.0.json", "description": "SEGRE general first config", "updated": "2025-08-04", "schema_validator": "config_schema-1.0.json"}
                 }            
+            },
+            "surveys_export_config": {
+                "last_version": "1.0",
+                "versions": {
+                    "1.0": {"file": "segre_surveys_export_config-1.0.json", "description": "SEGRE exporter config", "updated": "2025-09-02"}
+                }
+            },
+            "surveys_export_form": {
+                "last_version": "1.0",
+                "versions": {
+                    "1.0": {"file": "segre_surveys_export_form-1.0.json", "description": "SEGRE exporter form", "updated": "2025-09-02"}
+                }
             }
         },
         "plataformes": {
@@ -40,6 +64,18 @@
                 "versions": {
                     "1.0": {"file": "plataformes_config-1.0.json", "description": "Plataformes general first config", "updated": "2025-08-04", "schema_validator": "config_schema-1.0.json"}
                 }            
+            },
+            "surveys_export_config": {
+                "last_version": "1.0",
+                "versions": {
+                    "1.0": {"file": "plataformes_surveys_export_config-1.0.json", "description": "Plataformes exporter config", "updated": "2025-09-02"}
+                }
+            },
+            "surveys_export_form": {
+                "last_version": "1.0",
+                "versions": {
+                    "1.0": {"file": "plataformes_surveys_export_form-1.0.json", "description": "Plataformes exporter form", "updated": "2025-09-02"}
+                }
             }
         },
         "sacc": {
@@ -54,6 +90,18 @@
                 "versions": {
                     "1.0": {"file": "sacc_config-1.0.json", "description": "SACC general first config", "updated": "2025-08-04", "schema_validator": "config_schema-1.0.json"}
                 }            
+            },
+            "surveys_export_config": {
+                "last_version": "1.0",
+                "versions": {
+                    "1.0": {"file": "sacc_surveys_export_config-1.0.json", "description": "First SACC exporter", "updated": "2025-09-02"}
+                }
+            },
+            "surveys_export_form": {
+                "last_version": "1.0",
+                "versions": {
+                    "1.0": {"file": "sacc_surveys_export_form-1.0.json", "description": "First SACC form", "updated": "2025-09-02"}
+                }
             }
         },
         "dindis": {

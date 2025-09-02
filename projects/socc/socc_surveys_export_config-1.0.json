@@ -1,0 +1,149 @@
+{
+    "authorized_roles": ["collaborator", "data-manager", "super-data-manager", "project-coordinator"],
+    "primary_files": [
+        {
+            "model": "socc.Survey",
+            "filters": [],
+            "fields": ["pk", "monitoringsite__code", "season_year", "period__code", "observer__pk",
+            "neutralized_time", "form_type", "mammal_count", "comments", "replicate", "source", "state"],
+            "annotations": {
+                "date": {"type": "cast", "field_name": "time_start", "field_type": "date"},
+                "start": {"type": "cast", "field_name": "time_start", "field_type": "time"},
+                "end": {"type": "cast", "field_name": "time_end", "field_type": "time"},
+                "replica": {"type": "cast", "field_name": "replicate", "field_type": "integer"},
+                "observer_full_name": {"type": "concat", "separator": " ", "fields": ["observer__first_name", "observer__last_name"]}
+            },
+            "tomany_fields": {
+                "meteo": {
+                    "display_field": "value", "key_field": "type",
+                    "fields": {"temperature": "temperature", "wind": "wind", "sky": "sky", "rain": "rain", "visibility": "visibility"}
+                },
+                "sectiontimes": {
+                    "display_field": "time", "key_field": "section",
+                    "fields": {"section1": "1", "section2": "2", "section3": "3", "section4": "4", "section5": "5", "section6": "6"}
+                }
+            },
+            "labels": [
+                {"pk": "Id survey"},
+                {"monitoringsite__code": "Monitoringsite"},
+                {"season_year": "Year"},
+                {"period__code": "Period"},
+                {"date": "Date"},
+                {"observer__pk": "Id Observer"},
+                {"observer_full_name": "Observer"},
+                {"start": "Start time"},
+                {"end": "End time"},
+                {"neutralized_time": "Neutralized time"},
+                {"temperature": "Temperature"},
+                {"wind": "Wind"},
+                {"sky": "Sky"},
+                {"rain": "Rain"},
+                {"visibility": "Visibility"},
+                {"section1": "Time S1"},
+                {"section2": "Time S2"},
+                {"section3": "Time S3"},
+                {"section4": "Time S4"},
+                {"section5": "Time S5"},
+                {"section6": "Time S6"},
+                {"form_type": "Extended/Standar"},
+                {"mammal_count": "Mammal counts?"},
+                {"comments": "Comments"},
+                {"replica": "Replica"},
+                {"source": "Source"},
+                {"state": "Validation status"}
+            ]
+            ,
+            "excludes": {
+                "not_coordinator_excludes": ["replica", "source", "state", "observer_full_name"],
+                "collaborator_excludes": ["observer__pk"]
+            },
+            "order_by": ["monitoringsite__code", "season_year", "period__code"],
+            "filename": "surveys",
+            "primary_filtered_objects": "filtered_surveys"
+        }
+    ],
+    "related_files": [
+        {
+            "filename": "observations_birds",
+            "model": "socc.Detail",
+            "filters": [
+                {"query": "observation__taxonomy__species_thesaurus__id_taxo_group", "type": "value", "value": 1},
+                {"query": "observation__survey__in", "type": "primary_filtered_objects", "value": "filtered_surveys"},
+                {"query": "observation__taxonomy__in", "type": "user_fiter", "value": "species"}
+            ],
+            "fields":  ["observation__survey__pk", "observation__taxonomy__latin",
+                        "observation__taxonomy__parent_id", "section", "band", "count",
+                        "observation__suspicious", "sex", "observation__migrant"],
+            "annotations": {
+                "suspicious_int": {"type": "cast", "field_name": "observation__suspicious", "field_type": "integer"},
+                "migrant_int": {"type": "cast", "field_name": "observation__migrant", "field_type": "integer"},
+                "sex_translated": {"type": "replace", "field_name": "sex", "from": "U", "to": "A"}
+            },
+            "labels": [
+                {"observation__survey__pk": "Id survey"},
+                {"observation__taxonomy__latin": "Species"},
+                {"observation__taxonomy__parent_id": "Species ID"},
+                {"suspicious_int": "Suspicious"},
+                {"migrant_int": "Migrant"},
+                {"section": "Section"},
+                {"band": "Band"},
+                {"sex_translated": "Male/Other"},
+                {"count": "Total"}
+            ],
+            "extra_files": [
+                {
+                    "model": "socc.Observation",
+                    "header": false,
+                    "filters": [
+                        {"query": "taxonomy__species_thesaurus__id_taxo_group", "type": "value", "value": 1},
+                        {"query": "survey__in", "type": "primary_filtered_objects", "value": "filtered_surveys"},
+                        {"query": "taxonomy__in", "type": "user_fiter", "value": "species"}
+                    ],
+                    "filter_excludes": [
+                        {"query": "flyingover", "type": "value", "value": 0}
+                    ],
+                    "fields": ["survey__pk", "taxonomy__latin", "taxonomy__parent_id", "flyingover"],
+                    "annotations": {
+                        "suspicious_int": {"type": "cast", "field_name": "suspicious", "field_type": "integer"},
+                        "migrant_int": {"type": "cast", "field_name": "migrant", "field_type": "integer"},
+                        "section0": {"type": "value", "value": 0},
+                        "band0": {"type": "value", "value": 0},
+                        "sex0": {"type": "value", "value": ""}
+                    },
+                    "labels": [
+                        {"survey__pk": "Id survey"},
+                        {"taxonomy__latin": "Species"},
+                        {"taxonomy__parent_id": "Species ID"},
+                        {"suspicious_int": "Suspicious"},
+                        {"migrant_int": "Migrant"},
+                        {"section0": "Section"},
+                        {"band0": "Band"},
+                        {"sex0": "Male/Other"},
+                        {"flyingover": "Total"}
+                    ]
+                }
+            ]
+        },
+        {
+            "filename": "observations_mammals",
+            "model": "socc.Detail",
+            "filters": [
+                {"query": "observation__taxonomy__species_thesaurus__id_taxo_group", "type": "value", "value": 2},
+                {"query": "observation__survey__in", "type": "primary_filtered_objects",  "value": "filtered_surveys"},
+                {"query": "observation__taxonomy__in", "type": "user_fiter", "value": "species"}
+            ],
+            "fields": ["observation__survey__pk", "observation__taxonomy__latin", "observation__taxonomy__parent_id",
+                        "section", "band", "count", "observation__suspicious", "sex"],
+            "labels": [
+                {"observation__survey__pk": "Id survey"},
+                {"observation__taxonomy__latin": "Species"},
+                {"observation__taxonomy__parent_id": "Species ID"},
+                {"observation__suspicious": "Suspicious"},
+                {"section": "Section"},
+                {"band": "Band"},
+                {"sex": "Male/Other"},
+                {"count": "Total"}
+            ]
+        }
+    ]
+}

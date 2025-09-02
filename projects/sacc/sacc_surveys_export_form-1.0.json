@@ -1,0 +1,97 @@
+    {
+        "monitoringsites": {
+            "group_name": "Monitoring Sites",
+            "all_select": {"show": true, "label": "All monitoring sites"},
+            "type" : "select",
+            "default": true,
+            "queryset": {"type": "monitoringsite"},
+            "widget": {"label": "Choose monitoring sites"},
+            "query": "monitoringsite__in",
+            "order": 0
+        },
+        "labels": {
+            "group_name": "Monitoring Site labels",
+            "type" : "select",
+            "default": true,
+            "queryset": {"type": "label"},
+            "all_select": {"show": true, "label": "All monitoring sites labels"},
+            "widget": {"label": "Choose monitoring sites labels"},
+            "query": "monitoringsite__labels__in",
+            "order": 1
+        },
+        "periods": {
+            "group_name": "Periods",
+            "type" : "select",
+            "default": true,
+            "queryset": {"type": "period"},
+            "all_select": {"show": true, "label": "All periods"},
+            "widget": {"label": "Choose periods"},
+            "query": "period__in",
+            "order": 2
+        },
+        "year": {
+            "group_name": "Year range",
+            "type" : "range",
+            "default": true,
+            "all_select": {"show": true, "label": "All years"},
+            "widget": {"label": "Year range", "fields": ["year_min", "year_max"]},
+            "query": "season_year",
+            "order": 3
+        },
+        "observers": {
+            "group_name": "Observers",
+            "type" : "select",
+            "default": true,
+            "queryset": {"type": "observer"},
+            "all_select": {"show": true, "label": "All observers"},
+            "widget": {"label": "Choose observers"},
+            "query": "observer__in",
+            "order": 4
+        },
+        "species": {
+            "group_name": "Species",
+            "type" : "select",
+            "default": true,
+            "queryset": {"type": "species"},
+            "all_select": {"show": true, "label": "All species"},
+            "widget": {"label": "Choose species"},
+            "query": "observations__taxonomy__in",
+            "order": 5
+        },
+        "validations": {
+            "group_name": "Validation",
+            "type" : "select",
+            "default": false,
+            "all_select": {"show": true, "label": "All validation types"},
+            "widget": {"label": "Choose validation types"},
+            "query": "state__in",
+            "title": "Choose some of the following validations",
+            "model": "protocol_sacc.ValidationSacc",
+            "choices_obj": "VALIDATION_TYPES",
+            "order": 6
+        },
+        "form_types": {
+            "group_name": "Site type",
+            "type" : "select",
+            "default": false,
+            "all_select": {"show": true, "label": "All site types"},
+            "widget": {"label": "Choose site types"},
+            "query": "form_type__in",
+            "model": "protocol_sacc.SurveySacc",
+            "choices_obj": "FORM_TYPES",
+            "title": "Choose site types",
+            "order": 7
+        },
+        "survey_types": {
+            "group_name": "Survey type",
+            "type" : "select",
+            "default": false,
+            "all_select": {"show": true, "label": "All survey types"},
+            "widget": {"label": "Choose survey types"},
+            "query": "survey_type__in",
+            "model": "protocol_sacc.SurveySacc",
+            "choices_obj": "SURVEY_TYPES",
+            "title": "Choose survey types",
+            "order": 8
+        }
+    }

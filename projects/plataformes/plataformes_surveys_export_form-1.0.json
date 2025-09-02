@@ -1,0 +1,61 @@
+    {
+        "monitoringsites": {
+            "group_name": "Monitoring Sites",
+            "all_select": {"show": true, "label": "All monitoring sites"},
+            "type" : "select",
+            "default": true,
+            "queryset": {"type": "monitoringsite"},
+            "widget": {"label": "Choose monitoring sites"},
+            "query": "monitoringsite__in",
+            "order": 0
+        },
+        "labels": {
+            "group_name": "Labels",
+            "type" : "select",
+            "default": true,
+            "queryset": {"type": "label"},
+            "all_select": {"show": true, "label": "All monitoring sites labels"},
+            "widget": {"label": "Choose monitoring sites labels"},
+            "query": "monitoringsite__labels__in",
+            "order": 1
+        },
+        "platform_type": {
+            "group_name": "Platform type",
+            "type" : "select",
+            "default": true,
+            "queryset": {"type": "custom_field", "custom_field_type": "platform_type"},
+            "all_select": {"show": true, "label": "All platform types"},
+            "widget": {"label": "Choose platform types"},
+            "query": "platform_type__in",
+            "order": 2
+        },
+        "year": {
+            "group_name": "Year range",
+            "type" : "range",
+            "default": true,
+            "all_select": {"show": true, "label": "All years"},
+            "widget": {"label": "Year range", "fields": ["year_min", "year_max"]},
+            "query": "season_year",
+            "order": 3
+        },
+        "observers": {
+            "group_name": "Observers",
+            "type" : "select",
+            "default": true,
+            "queryset": {"type": "observer"},
+            "all_select": {"show": true, "label": "All observers"},
+            "widget": {"label": "Choose observers"},
+            "query": "observer__in",
+            "order": 4
+        },
+        "species": {
+            "group_name": "Species",
+            "type" : "select",
+            "default": true,
+            "queryset": {"type": "species"},
+            "all_select": {"show": true, "label": "All species"},
+            "widget": {"label": "Choose species"},
+            "query": "observations__taxonomy__in",
+            "order": 5
+        }
+    }
