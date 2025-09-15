@@ -161,7 +161,7 @@
         "ui_config": {
             "last_version": "1.0",
             "versions": {
-                "1.0": {"file": "ui_config_schema-1.0.json", "description": "First UI schema definitions", "updated": "2025-08-04"}
+                "1.0": {"file": "ui_schema-1.0.json", "description": "First UI schema definitions", "updated": "2025-08-04"}
             }
         },
         "config": {
