@@ -74,5 +74,34 @@
         "has_replicate": true,
         "has_neutralized_time": true,
         "has_single_date": true
+    },
+    "observation": {
+        "serializer_fields": {"periods": "survey__period_id"},
+        "map_initial_classification": "period_by_seasons",
+        "map_classification": {
+            "period_by_seasons": {
+                "label": "Classifica per Hivern/Primavera",
+                "type": "categories",
+                "field": "periods",
+                "categories": {
+                    "winter": {
+                        "label": "Hivern",
+                        "values": [3, 4],
+                        "match": "only",
+                        "color": "#2CAFEE"
+                    },
+                    "spring": {
+                        "label": "Primavera",
+                        "values": [1, 2],
+                        "match": "only",
+                        "color": "#E09900"
+                    }
+                },
+                "fallback": {
+                    "label": "Primavera i hivern",
+                    "color": "#808080"
+                }
+            }
+        }
     }
 }

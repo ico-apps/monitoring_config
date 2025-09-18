@@ -419,6 +419,57 @@
         },
         "required": ["collaborator", "project-coordinator"],
         "additionalProperties": false
+      },
+      "observation": {
+        "type": "object",
+        "properties": {
+          "serializer_fields": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          },
+          "map_initial_classification": {
+            "type": "string"
+          },
+          "map_classification": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "object",
+              "properties": {
+                "label": { "type": "string" },
+                "type": { "type": "string" },
+                "field": { "type": "string" },
+                "categories": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "object",
+                    "properties": {
+                      "label": { "type": "string" },
+                      "values": {
+                        "type": "array",
+                        "items": {}
+                      },
+                      "match": { "type": "string" },
+                      "color": { "type": "string" }
+                    },
+                    "required": ["label", "values", "match", "color"]
+                  }
+                },
+                "fallback": {
+                  "type": "object",
+                  "properties": {
+                    "label": { "type": "string" },
+                    "color": { "type": "string" }
+                  },
+                  "required": ["label", "color"]
+                }
+              },
+              "required": ["label", "type", "field", "categories", "fallback"]
+            }
+          }
+        },
+        "additionalProperties": false
       }
     },
     "additionalProperties": false,

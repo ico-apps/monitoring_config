@@ -8,9 +8,10 @@
                 }
             },
             "config": {
-                "last_version": "1.0",
+                "last_version": "1.1",
                 "versions": {
-                    "1.0": {"file": "socc_config-1.0.json", "description": "SOCC general first config", "updated": "2025-08-04", "schema_validator": "config_schema-1.0.json"}
+                    "1.0": {"file": "socc_config-1.0.json", "description": "SOCC general first config", "updated": "2025-08-04", "schema_validator": "config_schema-1.0.json"},
+                    "1.1": {"file": "socc_config-1.1.json", "description": "Added winter/spring observation map classification", "updated": "2025-09-18", "schema_validator": "config_schema-1.1.json"}
                 }            
             },
             "surveys_export_config": {
@@ -165,9 +166,10 @@
             }
         },
         "config": {
-            "last_version": "1.0",
+            "last_version": "1.1",
             "versions": {
-                "1.0": {"file": "config_schema-1.0.json", "description": "First config schema definitions", "updated": "2025-08-04"}
+                "1.0": {"file": "config_schema-1.0.json", "description": "First config schema definitions", "updated": "2025-08-04"},
+                "1.1": {"file": "config_schema-1.1.json", "description": "Added observation map classification", "updated": "2025-09-18"}
             }            
         }
     }
