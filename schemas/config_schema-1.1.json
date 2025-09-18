@@ -1,0 +1,440 @@
+{
+    "title": "Project Config",
+    "type": "object",
+    "required": [
+      "project",
+      "version",
+      "site",
+      "module",
+      "roles",
+      "collaborator",
+      "survey"
+    ],
+    "properties": {
+      "version": {
+        "type": "string"
+      },
+      "project": {
+        "type": "object",
+        "title": "Project",
+        "properties": {
+          "has_logo": {
+            "type": "boolean",
+            "default": false,
+            "format": "checkbox"
+          },
+          "external_observers": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "protocol_code": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "has_logo",
+          "external_observers",
+          "protocol_code"
+        ],
+        "additionalProperties": false
+      },
+      "module": {
+        "type": "object",
+        "title": "Mòduls",
+        "properties": {
+          "observations_map": {
+            "type": "boolean",
+            "default": true,
+            "title": "Mapa de distribució",
+            "format": "checkbox"
+          },
+          "stats": {
+            "type": "boolean",
+            "default": false,
+            "format": "checkbox"
+          },
+          "export_site_shapes": {
+            "type": "boolean",
+            "default": false,
+            "format": "checkbox"
+          },
+          "has_landing_stats": {
+            "type": "boolean",
+            "default": false,
+            "format": "checkbox"            
+          },
+          "custom_fields": {
+            "type": "boolean",
+            "default": false,
+            "format": "checkbox"
+          },
+          "survey_locations": {
+            "type": "boolean",
+            "default": false,
+            "format": "checkbox"
+          },
+          "ornitho": {
+            "type": "boolean",
+            "default": false,
+            "format": "checkbox"            
+          },
+          "site_metadata": {
+            "type": "boolean",
+            "default": false,
+            "format": "checkbox"            
+          }
+        },
+        "required": [
+          "export_site_shapes",
+          "observations_map",
+          "has_landing_stats",
+          "stats",
+          "custom_fields",
+          "survey_locations",
+          "site_metadata"
+        ],
+        "additionalProperties": false
+      },
+      "site": {
+        "type": "object",
+        "title": "Sites",
+        "properties": {
+          "list_shapes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "shape_type": {
+            "type": "string",
+            "default": "_site"
+          },
+          "shape_simple_serialization": {
+            "type": "boolean",
+            "default": true,
+            "format": "checkbox"
+          },
+          "shape_multiple_geometries": {
+            "type": "boolean",
+            "default": false,
+            "format": "checkbox"
+          },
+          "shape_extra_fields": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          },
+          "shape_on_creation":{
+            "type": "boolean",
+            "default": true,
+            "format": "checkbox"
+          },
+          "shape_defined_by_user": {
+            "type": "boolean",
+            "default": true,
+            "format": "checkbox"            
+          },
+          "shape_draw_config": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
+          "edit_coordinates": {
+            "type": "boolean",
+            "default": false,
+            "format": "checkbox"
+          },
+          "creation_using_map": {
+            "type": "boolean",
+            "default": true,
+            "format": "checkbox"
+          },
+          "creation_next_code": {
+            "type": "boolean",
+            "default": false,
+            "format": "checkbox"
+          },
+          "creation_automatic_code": {
+            "type": "boolean",
+            "default": false,
+            "format": "checkbox"
+          },
+          "creation_create_collaboration": {
+            "type": "boolean",
+            "default": false,
+            "format": "checkbox"
+          },
+          "creation_workgroup_code": {
+            "type": "boolean",
+            "default": true,
+            "format": "checkbox"
+          },
+          "view_change_shape": {
+            "type": "boolean",
+            "default": true,
+            "format": "checkbox"
+          },
+          "view_species": {
+            "type": "boolean",
+            "default": true,
+            "format": "checkbox"
+          },
+          "view_summary": {
+            "type": "boolean",
+            "default": false,
+            "format": "checkbox"
+          },
+          "view_list_public": {
+            "type": "boolean",
+            "default": false,
+            "format": "checkbox"
+          }
+        },
+        "required": [
+          "list_shapes",
+          "shape_type",
+          "shape_simple_serialization",
+          "shape_extra_fields",
+          "shape_multiple_geometries",
+          "shape_on_creation",
+          "shape_defined_by_user",
+          "edit_coordinates",
+          "creation_using_map",
+          "creation_next_code",
+          "creation_automatic_code",
+          "creation_create_collaboration",
+          "creation_workgroup_code",
+          "view_change_shape",
+          "view_species",
+          "view_summary",
+          "view_list_public"
+        ],
+        "additionalProperties": false
+      },
+      "collaborator": {
+        "type": "object",
+        "title": "Project",
+        "properties": {
+          "can_modify_valid_survey": {
+            "type": "boolean",
+            "default": true,
+            "format": "checkbox"
+          },
+          "has_material": {
+            "type": "boolean",
+            "default": false,
+            "format": "checkbox"
+          },
+          "can_delete_collaboration": {
+            "type": "boolean",
+            "default": false,
+            "format": "checkbox"
+          }
+        },
+        "required": [
+          "can_modify_valid_survey",
+          "has_material",
+          "can_delete_collaboration"
+        ],
+        "additionalProperties": false
+      },
+      "roles": {
+        "type": "object",
+        "properties": {
+          "coordination": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "collaborator",
+                "data-manager",
+                "super-data-manager",
+                "workgroup-coordinator",
+                "project-coordinator"
+              ]
+            }
+          },
+          "with_workgroups": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "collaborator",
+                "data-manager",
+                "super-data-manager",
+                "workgroup-coordinator",
+                "project-coordinator"
+              ]
+            }
+          },
+          "can_see_all": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "collaborator",
+                "data-manager",
+                "super-data-manager",
+                "workgroup-coordinator",
+                "project-coordinator"
+              ]
+            }
+          },
+          "can_create_sites": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "collaborator",
+                "data-manager",
+                "super-data-manager",
+                "workgroup-coordinator",
+                "project-coordinator"
+              ]
+            }
+          },
+          "can_see_species_map": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "collaborator",
+                "data-manager",
+                "super-data-manager",
+                "workgroup-coordinator",
+                "project-coordinator"
+              ]
+            }
+          }
+        },
+        "required": [
+          "coordination",
+          "with_workgroups",
+          "can_see_all",
+          "can_create_sites"
+        ],
+        "additionalProperties": false
+      },
+      "survey": {
+        "type": "object",
+        "title": "Survey",
+        "properties": {
+          "behaviour": {
+            "type": "boolean",
+            "default": false,
+            "format": "checkbox"
+          },
+          "impact": {
+            "type": "boolean",
+            "default": false,
+            "format": "checkbox"
+          },
+          "non_natural_year": {
+            "type": "boolean",
+            "default": false,
+            "format": "checkbox"
+          },
+          "validation": {
+            "type": "boolean",
+            "default": true,
+            "format": "checkbox"
+          },
+          "observer_external_id": {
+            "type": "string"
+          },
+          "period": {
+            "type": "boolean",
+            "default": false,
+            "format": "checkbox"
+          },
+          "period_out_of": {
+            "type": "boolean",
+            "default": false,
+            "format": "checkbox"
+          },
+          "period_with_spring_winter": {
+            "type": "boolean",
+            "default": false,
+            "format": "checkbox"
+          },
+          "has_suspicious_observations": {
+            "type": "boolean",
+            "default": true,
+            "format": "checkbox"
+          },
+          "has_replicate": {
+            "type": "boolean",
+            "default": false,
+            "format": "checkbox"
+          },
+          "observation_has_total_count": {
+            "type": "boolean",
+            "default": true,
+            "format": "checkbox"
+          },
+          "observation_has_comments": {
+            "type": "boolean",
+            "default": true,
+            "format": "checkbox"
+          },
+          "has_neutralized_time": {
+            "type": "boolean",
+            "default": false,
+            "format": "checkbox"
+          },
+          "has_single_date": {
+            "type": "boolean",
+            "default": true,
+            "format": "checkbox"
+          }
+        },
+        "required": [
+          "behaviour",
+          "impact",
+          "non_natural_year",
+          "validation",
+          "observer_external_id",
+          "period",
+          "period_out_of",
+          "period_with_spring_winter",
+          "has_suspicious_observations",
+          "has_replicate",
+          "has_neutralized_time",
+          "has_single_date"
+        ],
+        "additionalProperties": false
+      },
+      "permissions": {
+        "type": "object",
+        "properties": {
+          "collaborator": { "$ref": "#/$defs/rolePermissions" },
+          "project-coordinator": { "$ref": "#/$defs/rolePermissions" },
+          "data-manager": { "$ref": "#/$defs/rolePermissions" },
+          "super-data-manager": { "$ref": "#/$defs/rolePermissions" },
+          "workgroup-coordinator": { "$ref": "#/$defs/rolePermissions" }
+        },
+        "required": ["collaborator", "project-coordinator"],
+        "additionalProperties": false
+      }
+    },
+    "additionalProperties": false,
+    "$defs": {
+      "rolePermissions": {
+        "type": "object",
+        "properties": {
+          "site_create": { "type": "string", "enum": ["none", "full-access"] },
+          "site_edit": { "type": "string", "enum": ["none", "collab", "full-access"] },
+          "site_edit_shape": { "type": "string", "enum": ["none", "collab", "full-access"] },
+          "survey_create": { "type": "string", "enum": ["none", "collab", "full-access"] },
+          "survey_detail": { "type": "string", "enum": ["none", "visible", "collab", "collab-owner", "collab-owner-notvalid", "full-access"] },
+          "survey_edit": { "type": "string", "enum": ["none", "visible", "collab", "collab-owner", "collab-owner-notvalid", "full-access"] }
+        },
+        "required": ["site_create", "site_edit", "site_edit_shape", "survey_create", "survey_detail", "survey_edit"],
+        "additionalProperties": false
+      }
+    }
+}
