@@ -1,5 +1,19 @@
 {
     "projects": {
+        "base": {
+            "ui_config": {
+                "last_version": "1.0",
+                "versions": {
+                    "1.0": {"file": "base_ui_config-1.0.json", "description": "Base UI first config", "updated": "2025-09-25", "schema_validator": "ui_schema-1.0.json"}
+                }
+            },
+            "config": {
+                "last_version": "1.0",
+                "versions": {
+                    "1.0": {"file": "base_config-1.0.json", "description": "Base general config", "updated": "2025-09-25", "schema_validator": "config_schema-1.0.json"}
+                }            
+            }
+        },
         "socc": {
             "ui_config": {
                 "last_version": "1.0",
