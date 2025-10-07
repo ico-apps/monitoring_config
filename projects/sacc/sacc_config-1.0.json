@@ -34,7 +34,6 @@
         "observations_map": true,
         "has_landing_stats": false,
         "stats": false,
-        "custom_fields": true,
         "survey_locations": false,
         "site_metadata": true,
         "ornitho": false
@@ -61,8 +60,6 @@
         ]
     },
     "survey": {
-        "behaviour": false,
-        "impact": false,
         "non_natural_year": true,
         "validation": true,
         "observer_external_id": "",
