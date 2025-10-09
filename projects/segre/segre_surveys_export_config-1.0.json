@@ -65,7 +65,7 @@
                 {"query": "survey__in", "type": "primary_filtered_objects",  "value": "filtered_surveys"},
                 {"query": "taxonomy__in", "type": "user_fiter", "value": "species"}
             ],
-            "fields": ["survey__pk", "taxonomy__latin", "taxonomy__species_id", "total_count", "behaviour", "obs_location"],
+            "fields": ["survey__pk", "taxonomy__latin", "taxonomy__species_id", "total_count", "custom_behaviour__tag", "obs_location"],
             "annotations": {
                 "start": {"type": "cast", "field_name": "time_start", "field_type": "time"},
                 "end": {"type": "cast", "field_name": "time_end", "field_type": "time"},
@@ -79,7 +79,7 @@
                 {"total_count": "Count"},
                 {"start": "Start time"},
                 {"end": "End time"},
-                {"behaviour": "Behaviour"},
+                {"custom_behaviour__tag": "Behaviour"},
                 {"x": "X"},
                 {"y": "Y"},
                 {"obs_location": "Visibility"}
@@ -93,7 +93,7 @@
                 {"query": "survey__in", "type": "primary_filtered_objects",  "value": "filtered_surveys"},
                 {"query": "taxonomy__in", "type": "user_fiter", "value": "species"}
             ],
-            "fields": ["survey__pk", "survey__monitoringsite__code", "survey__period", "taxonomy__latin", "total_count", "behaviour"],
+            "fields": ["survey__pk", "survey__monitoringsite__code", "survey__period", "taxonomy__latin", "total_count", "custom_behaviour__tag"],
             "annotations": {
                 "date": {"type": "cast", "field_name": "survey__time_start", "field_type": "date"},
                 "start": {"type": "cast", "field_name": "time_start", "field_type": "time"},
@@ -110,7 +110,7 @@
                 {"total_count": "Count"},
                 {"start": "Start time"},
                 {"end": "End time"},
-                {"behaviour": "Behaviour"},
+                {"custom_behaviour__tag": "Behaviour"},
                 {"x": "X"},
                 {"y": "Y"}
             ]
