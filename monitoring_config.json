@@ -169,6 +169,26 @@
                     "1.0": {"file": "son_shape_config-1.0.json", "description": "Recorder centroid point", "updated": "2025-08-04"}
                 }
             }
+        },
+        "awom": {
+            "ui_config": {
+                "last_version": "1.0",
+                "versions": {
+                    "1.0": {"file": "awom_ui_config-1.0.json", "description": "AWOM UI first config", "updated": "2025-10-17", "schema_validator": "ui_schema-1.0.json"}
+                }
+            },
+            "config": {
+                "last_version": "1.0",
+                "versions": {
+                    "1.0": {"file": "awom_config-1.0.json", "description": "AWOM general config", "updated": "2025-10-17", "schema_validator": "config_schema-1.0.json"}
+                }            
+            },
+            "geometry_schema": {
+                "last_version": "1.0",
+                "versions": {
+                    "1.0": {"file": "awom_shape_config-1.0.json", "description": "Ringing station point", "updated": "2025-10-17"}
+                }
+            }
         }
     },
     "schemas": {
