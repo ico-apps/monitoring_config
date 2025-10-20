@@ -17,14 +17,14 @@
             {
             "type": "marker",
             "feature_collection": false,
-            "action_draw_text": "Dibuixa l'estació d'anellament",
+            "action_draw_text": "Dibuixa el centroide de l'estació d'anellament",
             "legend_title": "",
             "unique_together": []
             }
         ],
         "edit_coordinates": false,
         "creation_using_map": false,
-        "creation_next_code": false,
+        "creation_next_code": true,
         "creation_automatic_code": false,
         "creation_create_collaboration": false,
         "creation_workgroup_code": false,
